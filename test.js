@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var preValidator_1 = require("./preValidator");
+var runnerImplementar_1 = require("./runnerImplementar");
+var chyme_1 = require("./chyme");
+var Redis = require('ioredis');
+var redis = new Redis();
+var runnerImplementar = new runnerImplementar_1.RunnerImplementar();
+var chyme = new chyme_1.Chyme(new preValidator_1.PreValidator(redis, runnerImplementar));
+chyme.getPreValidator().add();
+chyme.getPreValidator().get();
+chyme.getPreValidator().delete();
